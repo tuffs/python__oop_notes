@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+# List of binaries available on system...
+
+import os
+
+directory_path = "/usr/bin"
+
+if os.path.isdir(directory_path):
+    print(f"Applications in {directory_path}")
+    for filename in os.listdir(directory_path):
+        full_path = os.path.join(directory_path, filename)
+        if os.path.isfile(full_path):
+            app_name = full_path.strip(directory_path)
+            if app_name != "":
+                print(f"- {app_name}")
+else:
+    print(f"Error: Directory '{directory_path}' not found.")
